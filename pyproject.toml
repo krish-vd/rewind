@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-rewind"
+version = "0.1.0"
+description = "A flight recorder and debugger for AI coding agent sessions: rebuild every step, bisect the edit that broke your tests, blame lines to prompts."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Krish Desai" }]
+dependencies = ["rich>=13", "textual>=0.80"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+rewind = "rewind.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["rewind*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
